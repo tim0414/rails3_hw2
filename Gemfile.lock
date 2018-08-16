@@ -109,6 +109,7 @@ GEM
     tzinfo (0.3.54)
     uglifier (4.1.18)
       execjs (>= 0.3.0, < 3)
+    will_paginate (3.0.12)
 
 PLATFORMS
   ruby
@@ -121,6 +122,7 @@ DEPENDENCIES
   sqlite3
   test-unit
   uglifier (>= 1.0.3)
+  will_paginate (~> 3.0.4)
 
 BUNDLED WITH
    1.16.3

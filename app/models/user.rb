@@ -1,8 +1,12 @@
 class User < ActiveRecord::Base
     attr_accessible :name, :email#, :password, :password_confirmation
 
-    has_many :subscriber_subscribes, class_name: 'Subscribe', foreign_key: 'subscriber_id'
-    has_many :owner_subscribes, class_name: 'Subscribe', foreign_key: 'owner_id'
+    has_many :subscriber_subscribes, class_name: 'Subscribe', 
+             foreign_key: 'subscriber_id'
+    has_many :owner_subscribes, class_name: 'Subscribe', 
+             foreign_key: 'owner_id'
+
+    has_many :cameras
 
 
     email_regex = /\A[\w+\-.]+@{a-z\d\-.}+\.[a-z]+\z/i
