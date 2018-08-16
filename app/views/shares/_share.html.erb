@@ -3,6 +3,6 @@
         <b>Share nickname:</b>
         <span class="share"><%= get_subscriber_nickname(share) %></span>
         <b> Email:</b>
-        <span class="subscribe"><%= get_subscriber_email(share) %></span>
+        <span class="subscribe"><%=link_to get_subscriber_email(share), get_subscriber(share) %></span>
     </td>
 </tr>

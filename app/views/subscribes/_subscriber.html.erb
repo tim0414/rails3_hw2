@@ -4,6 +4,6 @@
         <b>Name:</b>
         <span class="subscribe"><%= User.find(subscriber.owner_id).name %></span>
         <b> Email:</b>
-        <span class="subscribe"><%= User.find(subscriber.owner_id).email %></span>
+        <span class="subscribe"><%= link_to User.find(subscriber.owner_id).email, User.find(subscriber.owner_id) %></span>
     </td>
 </tr>

@@ -1,6 +1,6 @@
 module SharesHelper
     def get_subscriber(share)
-        Subscribe.find(share.subscribe_id)
+        User.find(Subscribe.find(share.subscribe_id).subscriber_id)
     end
     def get_subscriber_nickname(share)
         Subscribe.find(share.subscribe_id).nickname
