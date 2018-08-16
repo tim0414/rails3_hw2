@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180815174451) do
+ActiveRecord::Schema.define(:version => 20180816024636) do
+
+  create_table "subscribes", :force => true do |t|
+    t.integer  "owner_id"
+    t.integer  "subscriber_id"
+    t.string   "nickname"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "subscribes", ["owner_id"], :name => "index_subscribes_on_owner_id"
+  add_index "subscribes", ["subscriber_id"], :name => "index_subscribes_on_subscriber_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
