@@ -4,9 +4,9 @@ class UsersController < ApplicationController
     @cameras = @user.cameras.paginate(:page => params[:page])
     @camera = @user.cameras.build
 
-    @subscribe = @user.owner_subscribes.paginate(:page => params[:page])
+    @owner = @user.owner_subscribes.paginate(:page => params[:page])
 
-    @own = @user.subscriber_subscribes.paginate(:page => params[:page])
+    @subscriber = @user.subscriber_subscribes.paginate(:page => params[:page])
 
   end
   

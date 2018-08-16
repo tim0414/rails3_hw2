@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Camera Name:</b>
+  <%= @camera.name %>
+</p>
+
+<table class="cameras" summary="User cameras">
+    <%= render @user %>
+</table>
+
+
+
+<% if @camera.shares %>
+  <table class="shares"  summary="Camera share">
+    <%= render @shares %>
+  </table>
+  <%= will_paginate @shares %>
+<% end %>
+</tb>

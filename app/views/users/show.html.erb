@@ -32,27 +32,28 @@
 
 
 <td class="sidebar round">
-  <strong>Subscribers</strong> <%= @user.owner_subscribes.count %>
+  <strong>My Subscribers</strong> <%= @user.owner_subscribes.count %>
 </td>
 
 <% if @user.owner_subscribes %>
   <table class="subscribes" summary="User subscribes">
-    <%= render @subscribe %>
+    <%= render  partial:'subscribes/owner',collection:@owner %>
   </table>
-  <%= will_paginate @subscribe %>
+  <%= will_paginate @owner %>
 <% end %>
 </tb>
+
+
 
 <td class="sidebar round">
-  <strong>Subscribers</strong> <%= @user.subscriber_subscribes.count %>
+  <strong>Subscribing</strong> <%= @user.subscriber_subscribes.count %>
 </td>
 
-<% if @user.subscriber_subscribes %>
+<% if @user.subscriber_subscribes != [] %>
   <table class="subscribe" summary="User subscribes">
-    <%= render @own %>
+    <%= render partial: 'subscribes/subscriber',collection:@subscriber %>
   </table>
-  <%= will_paginate @own %>
+  <%= will_paginate @subscriber %>
 <% end %>
 </tb>
-
 

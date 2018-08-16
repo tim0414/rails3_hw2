@@ -1,4 +1,6 @@
 class Subscribe < ActiveRecord::Base
+  attr_accessible :owner_id, :subscriber_id, :nickname
+
   belongs_to :owner, class_name: "User"
   belongs_to :subscriber, class_name: "User"
 
