@@ -3,7 +3,7 @@ class SubscribesController < ApplicationController
         
         if subscriber = User.find_by_email(params[:email])
             #puts "id: #{subscriber.class}"
-            @new_subscriber = Subscribe.new(nickname:params[:nickname], subscriber_id: subscriber.id, owner_id: 1)
+            @new_subscriber = Subscribe.new(nickname:params[:nickname], subscriber_id: subscriber.id, owner_id: @@owner.id)
             @new_subscriber.save
         end
         #@new_subscriber = Subscribe.new(nickname:params[:nickname], subscriber_id: 4, owner_id: 1)
@@ -24,6 +24,10 @@ class SubscribesController < ApplicationController
             format.json { head :no_content }
         end
     
+    end
+
+    def self.set_owner(owner)
+        @@owner = owner
     end
 
 

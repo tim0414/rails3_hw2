@@ -48,6 +48,7 @@
 <%= form_tag "/subscribes" do %>
 
   <div class="field">
+    <% SubscribesController.set_owner(@user)%>
     <%= label_tag "nick name" %>
     <%= text_field_tag :nickname %>
     <%= label_tag "email" %>
