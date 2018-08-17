@@ -25,7 +25,7 @@
   <div class="field">
     <%= f.label "camera name" %>
     <%= f.text_field :name %>
-    <%= CamerasController.set_user @user%>
+    <%= CamerasController.set_user @user %>
   </div>
   <div class="actions">
     <%= f.submit "Submit" %>
@@ -52,7 +52,6 @@
     <%= text_field_tag :nickname %>
     <%= label_tag "email" %>
     <%= text_field_tag :email %>
-    <%= CamerasController.set_user @new_subscriber%>
   </div>
   <div class="actions">
     <%= submit_tag "Submit" %>
@@ -66,8 +65,20 @@
 
 <% if @user.subscriber_subscribes != [] %>
   <table class="subscribe" summary="User subscribes">
-    <%= render partial: 'subscribes/subscriber',collection:@subscriber %>
+    <%= render partial: 'subscribes/subscriber',collection: @subscriber %>
   </table>
   <%= will_paginate @subscriber %>
 <% end %>
+</tb>
+
+
+<td class="sidebar round">
+  <strong>My Shared Cameras</strong> <%= @user.subscriber_subscribes.count %>
+</td>
+
+
+  <% @shared_camera = show_share_info(@user) %>
+  <table class="subscribes" summary="User subscribes">
+    <%= render  partial:'shares/share_info',collection: @shared_camera, as: :camera %>
+  </table>
 </tb>

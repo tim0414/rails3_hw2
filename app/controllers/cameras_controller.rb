@@ -1,5 +1,6 @@
 class CamerasController < ApplicationController
     def create
+
         if @@user.cameras.build(params[:camera]).invalid?
             #redirect_to :back
             #return
@@ -13,7 +14,7 @@ class CamerasController < ApplicationController
         @camera = @@user.cameras.build(params[:camera])
        
         if @camera.save
-            flash[:success] = "Duty created!"
+            flash[:success] = "Camera created!"
             #redirect_to 'employee#index'
             CamerasController.set_user(@@user)
             redirect_to :back
@@ -37,5 +38,12 @@ class CamerasController < ApplicationController
     end
 
     def destroy
+        @camera = Camera.find(params[:id])
+        @camera.destroy
+
+        respond_to do |format|
+            format.html { redirect_to :back, notice: 'Cameras was successfully destroyed.' }
+            format.json { head :no_content }
+        end
     end
 end
