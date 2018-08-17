@@ -10,6 +10,9 @@
 </table>
 
 
+<td class="sidebar round">
+  <strong>Share subscriber</strong> <%= @camera.shares.count %>
+</td>
 
 <% if @camera.shares %>
   <table class="shares"  summary="Camera share">
@@ -18,3 +21,15 @@
   <%= will_paginate @shares %>
 <% end %>
 </tb>
+
+<%= form_tag "/shares" do %>
+
+  <div class="field">
+    <%= label_tag "add new sharing camera email" %>
+    <%= text_field_tag :email %>
+    <%= SharesController.set_camera_id @camera.id %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Submit" %>
+  </div>
+<% end %>

@@ -4,5 +4,6 @@
         <span class="share"><%= get_subscriber_nickname(share) %></span>
         <b> Email:</b>
         <span class="subscribe"><%=link_to get_subscriber_email(share), get_subscriber(share) %></span>
+        <td><%= button_to 'Delete', share, method: :delete, data: { confirm: 'Are you sure?' }%></td>
     </td>
 </tr>

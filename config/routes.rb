@@ -1,6 +1,9 @@
 Rails3Hw2::Application.routes.draw do
   resources :users
   resources :cameras
+  resources :subscribes
+  resources :shares
+
   
   get "users/new"
   get "pages/home"

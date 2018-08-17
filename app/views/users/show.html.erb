@@ -20,10 +20,12 @@
 </tb>
 
 
-<%= form_for(@camera) do |f| %>
+<%= form_for(@new_camera) do |f| %>
 
   <div class="field">
-    <%= f.text_area :name %>
+    <%= f.label "camera name" %>
+    <%= f.text_field :name %>
+    <%= CamerasController.set_user @user%>
   </div>
   <div class="actions">
     <%= f.submit "Submit" %>
@@ -43,6 +45,19 @@
 <% end %>
 </tb>
 
+<%= form_tag "/subscribes" do %>
+
+  <div class="field">
+    <%= label_tag "nick name" %>
+    <%= text_field_tag :nickname %>
+    <%= label_tag "email" %>
+    <%= text_field_tag :email %>
+    <%= CamerasController.set_user @new_subscriber%>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Submit" %>
+  </div>
+<% end %>
 
 
 <td class="sidebar round">
@@ -56,4 +71,3 @@
   <%= will_paginate @subscriber %>
 <% end %>
 </tb>
-

@@ -4,5 +4,6 @@
         <span class="subscribe"><%= owner.nickname %></span>
         <b> Email:</b>
         <span class="subscribe"><%=link_to User.find(owner.subscriber_id).email,  User.find(owner.subscriber_id)%></span>
+        <td><%= button_to 'Delete', owner, method: :delete, data: { confirm: 'Are you sure?' }%></td>
     </td>
 </tr>
