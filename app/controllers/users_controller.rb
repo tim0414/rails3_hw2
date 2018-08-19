@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.new(params[:user])
+    @user = User.find(params[:id])
     @user.destroy
     respond_to do |format|
       format.html { redirect_to :back, notice: 'User was successfully destroyed.' }
