@@ -1,7 +1,4 @@
-<tr>
-    <td class="camera">
-        <b> Camera Name: </b>
-        <span class="description"><%=link_to camera.name, camera %></span>
-        <td><%= button_to 'Delete Camera', camera, method: :delete, data: { confirm: 'Are you sure?' }%></td>
-    </td>
+<tr> 
+    <td><%=link_to camera.name, camera %></td>
+    <td><%= button_to 'Delete Camera', camera, method: :delete, data: { confirm: 'Are you sure?' }%></td>
 </tr>

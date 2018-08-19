@@ -31,4 +31,5 @@ class SubscribesController < ApplicationController
     end
 
 
+
 end

@@ -1,0 +1,33 @@
+<p>
+  <b>Subscriber List:</b>
+</p>
+
+<% if @user.owner_subscribes %>
+  <table class="subscribes" summary="User subscribes">
+    <tr>
+        <th>Nickname</th>
+        <th>Subscriber Email</th>
+    </tr>
+    <%= render  partial:'subscribes/owner',collection:@owner %>
+  </table>
+  <%= will_paginate @owner %>
+<% end %>
+</tb>
+
+<p>
+    <b> Adding New Subscriber </b>
+</p>
+
+<%= form_tag "/subscribes" do %>
+
+  <div class="field">
+    <% SubscribesController.set_owner(@user)%>
+    <%= label_tag "nick name" %>
+    <%= text_field_tag :nickname %>
+    <%= label_tag "email" %>
+    <%= text_field_tag :email %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Submit" %>
+  </div>
+<% end %>

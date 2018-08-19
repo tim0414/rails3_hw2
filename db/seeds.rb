@@ -30,6 +30,7 @@ sub6 = Subscribe.create(owner_id:paul.id, subscriber_id:leo.id, nickname: "leo@p
 
 Share.create(camera_id:cam8.id, subscribe_id:sub6.id)
 Share.create(camera_id:cam1.id, subscribe_id:sub1.id)
+Share.create(camera_id:cam6.id, subscribe_id:sub3.id)
 Share.create(camera_id:cam1.id, subscribe_id:sub2.id)
 Share.create(camera_id:cam6.id, subscribe_id:sub5.id)
 Share.create(camera_id:cam7.id, subscribe_id:sub4.id)

@@ -1,0 +1,31 @@
+<p>
+  <b>Camera List:</b>
+</p>
+
+<% if @user.cameras %>
+  <table class="cameras" summary="User cameras">
+    <tr>
+        <th>Camera name</th>
+    </tr>
+    <%= render @cameras %>
+  </table>
+  <%= will_paginate @cameras %>
+<% end %>
+</tb>
+
+
+<p>
+    <b> Adding New Camera </b>
+</p>
+
+<%= form_for(@new_camera) do |f| %>
+
+  <div class="field">
+    <%= f.label "camera name" %>
+    <%= f.text_field :name %>
+    <%= CamerasController.set_user @user %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

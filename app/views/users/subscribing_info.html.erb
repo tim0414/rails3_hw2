@@ -1,0 +1,14 @@
+<p>
+  <b>Subscribing List:</b>
+</p>
+
+<% if @user.subscriber_subscribes != [] %>
+  <table >
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    <%= render partial: 'subscribes/subscriber',collection: @subscriber %>
+  </table>
+  <%= will_paginate @subscriber %>
+<% end %>

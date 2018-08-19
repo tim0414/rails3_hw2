@@ -1,9 +1,5 @@
 
 <tr>
-    <td class="subscribe">
-        <b>Name:</b>
-        <span class="subscribe"><%= User.find(subscriber.owner_id).name %></span>
-        <b> Email:</b>
-        <span class="subscribe"><%= link_to User.find(subscriber.owner_id).email, User.find(subscriber.owner_id) %></span>
-    </td>
+    <td><%= User.find(subscriber.owner_id).name %></td>
+    <td ><%= link_to User.find(subscriber.owner_id).email, User.find(subscriber.owner_id) %></td>
 </tr>

@@ -29,6 +29,7 @@ class CamerasController < ApplicationController
         @user = User.find(@camera.user_id)
         @shares = @camera.shares.paginate(:page => params[:page])
 
+        @owner = @user.owner_subscribes.paginate(:page => params[:page])
         @new_share = @camera.shares.build
     end
 

@@ -6,16 +6,32 @@
 </p>
 
 <table class="cameras" summary="User cameras">
+    <tr>
+        <th>Owner Name</th>
+        <th>Email</th>
+    </tr>
     <%= render @user %>
 </table>
 
+<table class="cameras" summary="User cameras">
+    <tr>
+        <th>Owner's Subscriber</th>
+        <th>Email</th>
+    </tr>
+    <%= render  partial:'subscribes/owner_info_only',collection:@owner %>
+</table>
 
+<!--
 <td class="sidebar round">
-  <strong>Share subscriber</strong> <%= @camera.shares.count %>
+  <strong >Shared subscriber</strong> <%= @camera.shares.count %>
 </td>
-
+-->
 <% if @camera.shares %>
   <table class="shares"  summary="Camera share">
+    <tr>
+        <th>Shared Nickname</th>
+        <th>Email</th>
+    </tr>
     <%= render @shares %>
   </table>
   <%= will_paginate @shares %>
@@ -28,8 +44,7 @@
     <%= label_tag "add new sharing camera email" %>
     <%= text_field_tag :email %>
     <%= SharesController.set_camera_id @camera.id %>
+    <%= submit_tag "Add" %>
   </div>
-  <div class="actions">
-    <%= submit_tag "Submit" %>
-  </div>
+
 <% end %>

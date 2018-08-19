@@ -7,10 +7,15 @@
 
 <td class="main">
 
+<!--camera list link-->
+<p>
 <td class="sidebar round">
-  <strong>Cameras</strong> <%= @user.cameras.count %>
-</td>
-
+<%= link_to   raw("<strong>Cameras List</strong>"),
+ {:controller => "users", :action => "camera_info", :user => @user }%>
+  <%= @user.cameras.count %>
+</td> 
+</p>
+<!--
 <% if @user.cameras %>
   <table class="cameras" summary="User cameras">
     <%= render @cameras %>
@@ -31,12 +36,18 @@
     <%= f.submit "Submit" %>
   </div>
 <% end %>
+-->
 
-
+<!--subscriber list link-->
+<p>
 <td class="sidebar round">
-  <strong>My Subscribers</strong> <%= @user.owner_subscribes.count %>
+  <%= link_to  raw("<strong>Subscribers List</strong>"), 
+   {:controller => "users", :action => "subscriber_info", :user => @user }%>
+  <%= @user.owner_subscribes.count %>
 </td>
+</p>
 
+<!--
 <% if @user.owner_subscribes %>
   <table class="subscribes" summary="User subscribes">
     <%= render  partial:'subscribes/owner',collection:@owner %>
@@ -58,12 +69,18 @@
     <%= submit_tag "Submit" %>
   </div>
 <% end %>
+-->
 
-
+<!--subscribing list link-->
+<p>
 <td class="sidebar round">
-  <strong>Subscribing</strong> <%= @user.subscriber_subscribes.count %>
+   <%= link_to  raw("<strong>Subscribing List</strong>"), 
+   {:controller => "users", :action => "subscribing_info", :user => @user.id }%>
+  <%= @user.subscriber_subscribes.count %>
 </td>
+</p>
 
+<!--
 <% if @user.subscriber_subscribes != [] %>
   <table class="subscribe" summary="User subscribes">
     <%= render partial: 'subscribes/subscriber',collection: @subscriber %>
@@ -71,15 +88,21 @@
   <%= will_paginate @subscriber %>
 <% end %>
 </tb>
+-->
 
-
+<!--shared camera list link-->
+<p>
 <td class="sidebar round">
-  <strong>My Shared Cameras</strong> <%= @user.subscriber_subscribes.count %>
+   <%= link_to  raw("<strong>Shared Camera List</strong>"), 
+   {:controller => "users", :action => "shared_camera_info", :user => @user.id }%>
+  <%= shared_camera_count(@user) %>
 </td>
+</p>
 
-
-  <% @shared_camera = show_share_info(@user) %>
+<!--
+<% @shared_camera %>
   <table class="subscribes" summary="User subscribes">
     <%= render  partial:'shares/share_info',collection: @shared_camera, as: :camera %>
   </table>
 </tb>
+-->

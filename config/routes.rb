@@ -1,4 +1,10 @@
 Rails3Hw2::Application.routes.draw do
+  get "users/subscriber_info", to:"users#subscriber_info"
+  get "users/subscribing_info", to:"users#subscribing_info"
+  get "users/shared_camera_info", to:"users#shared_camera_info"
+  get "users/camera_info", to:"users#camera_info"
+  
+
   resources :users
   resources :cameras
   resources :subscribes
@@ -7,6 +13,7 @@ Rails3Hw2::Application.routes.draw do
   
   get "users/new"
   get "pages/home"
+  
 
   match '/signup',  :to => 'users#new'
 
