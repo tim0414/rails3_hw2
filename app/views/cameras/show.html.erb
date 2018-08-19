@@ -5,6 +5,7 @@
   <%= @camera.name %>
 </p>
 
+<% if @camera.subscribes %>
 <table class="cameras" summary="User cameras">
     <tr>
         <th>Owner Name</th>
@@ -16,11 +17,11 @@
 <table class="cameras" summary="User cameras">
     <tr>
         <th>Owner's Subscriber</th>
-        <th>Email</th>
+        <th>Subscriber's Email</th>
     </tr>
     <%= render  partial:'subscribes/owner_info_only',collection:@owner %>
 </table>
-
+<% end %>
 <!--
 <td class="sidebar round">
   <strong >Shared subscriber</strong> <%= @camera.shares.count %>

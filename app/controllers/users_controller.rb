@@ -33,6 +33,15 @@ class UsersController < ApplicationController
   
   end
 
+  def destroy
+    @user = User.new(params[:user])
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to :back, notice: 'User was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   def camera_info
     @user = User.find(params[:user])
     @cameras = @user.cameras.paginate(:page => params[:page]) 

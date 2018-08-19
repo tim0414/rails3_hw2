@@ -1,4 +1,8 @@
 <p>
+  <%= notice %>
+</p>
+
+<p>
   <b>Camera List:</b>
 </p>
 
@@ -19,7 +23,6 @@
 </p>
 
 <%= form_for(@new_camera) do |f| %>
-
   <div class="field">
     <%= f.label "camera name" %>
     <%= f.text_field :name %>

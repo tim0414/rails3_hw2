@@ -1,4 +1,8 @@
 <p>
+  <%= notice %>
+</p>
+
+<p>
   <b>Subscriber List:</b>
 </p>
 
@@ -6,7 +10,7 @@
   <table class="subscribes" summary="User subscribes">
     <tr>
         <th>Nickname</th>
-        <th>Subscriber Email</th>
+        <th>Subscriber's Email</th>
     </tr>
     <%= render  partial:'subscribes/owner',collection:@owner %>
   </table>
@@ -19,7 +23,6 @@
 </p>
 
 <%= form_tag "/subscribes" do %>
-
   <div class="field">
     <% SubscribesController.set_owner(@user)%>
     <%= label_tag "nick name" %>
@@ -28,6 +31,6 @@
     <%= text_field_tag :email %>
   </div>
   <div class="actions">
-    <%= submit_tag "Submit" %>
+    <%= submit_tag "Add" %>
   </div>
 <% end %>
