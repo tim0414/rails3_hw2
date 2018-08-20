@@ -1,7 +1,5 @@
 <tr>
     <td><%= get_subscriber_nickname(share) %></td>
     <td><%=link_to get_subscriber_email(share), get_subscriber(share) %></td>
-    <%# SharesController.set_subscriber(get_subscriber(share)) %>
-    <% SharesController.set_share(share) %>
     <td><%= button_to 'Delete', share, method: :delete, data: { confirm: 'Are you sure?' }%></td>
 </tr>
