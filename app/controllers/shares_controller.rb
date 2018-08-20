@@ -50,18 +50,42 @@ class SharesController < ApplicationController
     end
 
     def destroy
-        @share = Share.find(params[:id])
-        @share.destroy
+        #camera = Camera.find(params[:id])
+        #owner = User.find(camera.user_id)
+        #subscribe = owner.owner_subscribes.find_by_subscriber_id(@@subscriber.id)
 
+        #@share = Share.find_by_subscribe_id(subscribe.id)
+        #@share = Share.find_by_subscribe_id(params[:id])
+        #@@share.destroy
+
+        share = Share.find(params[:id])
+        share.destroy
         respond_to do |format|
-            format.html { redirect_to :back, notice: 'Subscriber was successfully destroyed.' }
+            format.html { redirect_to :back, notice: 'Shared camera was successfully removed.' }
             format.json { head :no_content }
         end
+        #camera = Camera.find(params[:id])
+        #camera.name
+        #@share = Share.find(params[:id])
+        #@share.destroy
+        
+    end
+
+    def self.test
+        params[:id]
     end
 
     def self.set_camera_id(id)
         @@camera_id = id
         " "
+    end
+
+    def self.set_subscriber(subscriber)
+        @@subscriber = subscriber
+    end
+
+    def self.set_share(share)
+        @@share = share
     end
 
 

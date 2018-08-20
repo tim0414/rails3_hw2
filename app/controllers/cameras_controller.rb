@@ -8,24 +8,24 @@ class CamerasController < ApplicationController
                 format.html { redirect_to :back, notice: 'Camera can not be empty.' }
                 format.json { head :no_content }
             end
+        
         elsif @@user.cameras.find_by_name(params[:camera][:name])
             respond_to do |format|
                 format.html { redirect_to :back, notice: 'The camera name has existed.' }
                 format.json { head :no_content }
             end
-        return
-        end
-        
 
-        @camera = @@user.cameras.build(params[:camera])
-       
-        if @camera.save
+        else
+            @camera = @@user.cameras.build(params[:camera])
+            @camera.save
             flash[:success] = "Camera created!"
             #redirect_to 'employee#index'
             CamerasController.set_user(@@user)
-            redirect_to :back
-        else
-            render 'users#index'
+            respond_to do |format|
+                format.html { redirect_to :back, notice: 'Camera created!' }
+                format.json { head :no_content }
+            end
+        return
         end
 
     end

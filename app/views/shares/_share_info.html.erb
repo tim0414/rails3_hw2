@@ -1,8 +1,12 @@
+<b><%= params[:user]%>
 <tr>
     <td class="share info">
+        <%# camera = info[:shared_camera] %>
+        <%# user = info[:user] %>
         <b>Camera </b>
         <span class="camera"><%= camera.name %></span>
         <b>from</b>
         <span class="camera"><%= User.find(camera.user_id).email %></span>
+        <td><%# button_to 'Remove', camera.shares.find_by_subscribes_id, method: :delete, data: { confirm: 'Are you sure?' }%></td>
     </td>
 </tr>

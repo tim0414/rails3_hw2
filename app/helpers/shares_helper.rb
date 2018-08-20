@@ -8,4 +8,7 @@ module SharesHelper
     def get_subscriber_email(share)
         User.find(Subscribe.find(share.subscribe_id).subscriber_id).email
     end
+    def remove_share
+    end
+
 end
