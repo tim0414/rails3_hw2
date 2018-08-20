@@ -13,14 +13,17 @@ class SharesController < ApplicationController
 
         subscriber = User.find_by_email(params[:email])
         
-        if @user.owner_subscribes.find_by_subscriber_id(subscriber.id)==nil
+        if (subscribe = @user.owner_subscribes.find_by_subscriber_id(subscriber.id))==nil
             respond_to do |format|
                 format.html { redirect_to :back, notice: 'The user is not your subscriber!' }
                 format.json { head :no_content }
             end
+        elsif @camera.shares.find_by_subscribe_id(subscribe.id)
+            respond_to do |format|
+                format.html { redirect_to :back, notice: 'The camera is already share to the subscriber!' }
+                format.json { head :no_content }
+            end
         else
-            
-            #puts "id: #{subscriber.class}"
             subscribe_id = @user.owner_subscribes.find_by_subscriber_id(subscriber.id).id
             @new_share = Share.new( subscribe_id:subscribe_id,
                         camera_id: @@camera_id)
