@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Camera List</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Camera Name</th>
+      <th> Owner Name </th>
+      <th colspan="3"> Owner Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cameras.each do |camera| %>
+      <tr>
+        <td><%= link_to camera.name, camera %></td>
+        <td><%= User.find(camera.user_id).name %></td>
+        <td><%= User.find(camera.user_id).email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>

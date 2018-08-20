@@ -1,4 +1,8 @@
 class CamerasController < ApplicationController
+    def index
+        @cameras = Camera.all
+    end
+    
     def create
 
         if @@user.cameras.build(params[:camera]).invalid?
