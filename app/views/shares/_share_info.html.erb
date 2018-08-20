@@ -7,6 +7,9 @@
         <span class="camera"><%= camera.name %></span>
         <b>from</b>
         <span class="camera"><%= User.find(camera.user_id).email %></span>
-        <td><%# button_to 'Remove', camera.shares.find_by_subscribes_id, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+        <% subscriber = User.find(params[:user]) %>
+        <% owner = User.find(camera.user_id) %>
+        <% subscribe = owner.owner_subscribes.find_by_subscriber_id(subscriber.id) %>
+        <td><%= button_to 'Remove', camera.shares.find_by_subscribe_id(subscribe.id), method: :delete, data: { confirm: 'Are you sure?' }%></td>
     </td>
 </tr>
